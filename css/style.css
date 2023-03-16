@@ -1442,6 +1442,9 @@ div.button {
   height: 1.8rem;
   border: 2px solid #BFC3CE;
   border-radius: 50%;
+  -webkit-transition: border-color cubic-bezier(0.694, 0.048, 0.335, 1) 0.2s;
+  -o-transition: border-color cubic-bezier(0.694, 0.048, 0.335, 1) 0.2s;
+  transition: border-color cubic-bezier(0.694, 0.048, 0.335, 1) 0.2s;
 }
 
 .input-label__checkbox-indicator .icon::after {
@@ -2163,6 +2166,11 @@ html.fixed body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  margin-bottom: 2.8rem;
+}
+
+.popup__title-wrap:last-child {
+  margin-bottom: 0;
 }
 
 .popup__title-wrap .title {
@@ -2885,7 +2893,7 @@ html.fixed body {
 
 .selector__input {
   width: 100%;
-  border: 1px solid #CDD8E1;
+  border: 1px solid #E6EEF4;
   border-radius: 1.8rem;
 }
 
@@ -3730,6 +3738,11 @@ html.fixed body {
   background-color: #4542F6;
 }
 
+.checkbox-wrapper input[type=checkbox]:checked + .input-label .input-label__checkbox-indicator .icon,
+.checkbox-wrapper input[type=radio]:checked + .input-label .input-label__checkbox-indicator .icon {
+  border-color: #fff;
+}
+
 .checkbox-wrapper input[type=checkbox]:checked + .input-label .input-label__checkbox-indicator .icon::after,
 .checkbox-wrapper input[type=radio]:checked + .input-label .input-label__checkbox-indicator .icon::after {
   opacity: 1;
@@ -4545,6 +4558,10 @@ html.fixed body {
           transform: translateX(-14%);
 }
 
+.hero + .section {
+  margin-top: 4rem;
+}
+
 .not-found__container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4979,7 +4996,9 @@ html.fixed body {
   }
 
   .hero {
-    margin-top: 2rem;
+    margin-top: 0;
+    padding-top: 2rem;
+    margin-bottom: 0;
   }
 
   .not-found__container {
@@ -5079,6 +5098,10 @@ html.fixed body {
     margin-bottom: -2rem;
   }
 
+  .hero + .section {
+    margin-top: 0;
+  }
+
   .hero .hero__container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -5095,6 +5118,7 @@ html.fixed body {
 
   .hero .hero__title-container {
     padding-top: 2.4rem;
+    padding-bottom: 4rem;
   }
 
   .hero .hero__img {
@@ -5154,7 +5178,7 @@ html.fixed body {
     margin: 0 -0.75rem;
   }
 
-  .reviews .reviews .review-item {
+  .reviews .review-item {
     -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.06);
             box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.06);
   }

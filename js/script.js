@@ -1,7 +1,7 @@
 import Swiper from '../plugins/swiper/swiper-bundle.min.js';
 
 const html = document.body.parentNode;
-let fixedElementsQuery = ['body', '#header', '#header-menu'];
+let fixedElementsQuery = ['body', '#header'];
 let fixedElements = [];
 
 const initFixedElements = () => {
