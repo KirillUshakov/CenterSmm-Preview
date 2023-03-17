@@ -733,6 +733,7 @@ function initTabs (tabsComponent) {
   const controllsWrapper = tabsComponent.querySelector('.tabs__controlls');
   const controlls = [];
   let curTab = null;
+  let inputAvailable = true;
 
   const generateControlls = () => {
     controllsWrapper.innerHTML = '';
@@ -770,15 +771,23 @@ function initTabs (tabsComponent) {
     })
   }
   const openTab = async (tab) => {
-    if (!tab || (tab === curTab)) return;
+    if (!tab || (tab === curTab) || !inputAvailable) return;
+
+    inputAvailable = false;
 
     if (curTab) { await closeTab(curTab, tab); }
 
     controlls.find(controll => controll.dataset.tabOpen === tab.dataset.tab)?.classList.add('active');
     tab.classList.add('active');
-    tab.animate({
-      height: tab.scrollHeight + 'px',
-    }, tabAnimOptions).finished.then(() => tab.classList.add('finished'));
+    tab.animate(
+      {
+        height: tab.scrollHeight + 'px',
+      },
+      tabAnimOptions
+    ).finished.then(() => {
+      tab.classList.add('finished');
+      inputAvailable = true;
+    });
 
     curTab = tab;
   }
